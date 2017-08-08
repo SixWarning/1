@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\urllib3\connectionpool.py", line 356, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1106, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1151, in _send_request
+    self.endheaders(body)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1102, in endheaders
+    self._send_output(message_body)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000002726B2FF198>: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\adapters.py", line 440, in send
+    timeout=timeout
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\urllib3\connectionpool.py", line 649, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='1r7523j220.51mypc.cn', port=33416): Max retries exceeded with url: http://10.0.0.8/default2.aspx (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002726B2FF198>: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。',)))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:/python/Python Project/1/zhengfang/com/ch/dist/proxiesTest.py", line 17, in test
+    response = requests.get('http://10.0.0.8/default2.aspx', proxies=proxies,headers=headers)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\api.py", line 72, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\sessions.py", line 502, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\sessions.py", line 612, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\陈灏\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\adapters.py", line 502, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPConnectionPool(host='1r7523j220.51mypc.cn', port=33416): Max retries exceeded with url: http://10.0.0.8/default2.aspx (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002726B2FF198>: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。',)))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:/python/Python Project/1/zhengfang/com/ch/dist/proxiesTest.py", line 31, in <module>
+    test()
+  File "D:/python/Python Project/1/zhengfang/com/ch/dist/proxiesTest.py", line 21, in test
+    input()
+EOFError: EOF when reading a line
